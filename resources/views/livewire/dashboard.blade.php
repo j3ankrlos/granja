@@ -1,69 +1,177 @@
-<div>
+<div class="container-fluid py-4">
+    <!-- Fila 1 de Tarjetas -->
     <div class="row g-4 mb-4">
-        <!-- Tarjetas de Resumen -->
+        <!-- Inventario A002 -->
         <div class="col-12 col-sm-6 col-xl-3">
-            <div class="card card-body p-4 h-100">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                    <div class="avatar avatar-md bg-primary-subtle text-primary rounded-circle p-2" style="width: 48px; height: 48px; display: flex; align-items:center; justify-content:center;">
-                        <i class="ph ph-users-three fs-3"></i>
-                    </div>
-                    <span class="badge bg-success-subtle text-success">Total</span>
-                </div>
-                <h6 class="text-muted mb-1 text-uppercase small fw-bold">Usuarios</h6>
-                <h2 class="mb-0 fw-bold">{{ \App\Models\User::count() }}</h2>
-            </div>
-        </div>
-        
-        <div class="col-12 col-sm-6 col-xl-3">
-            <div class="card card-body p-4 h-100">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                    <div class="avatar avatar-md bg-warning-subtle text-warning rounded-circle p-2" style="width: 48px; height: 48px; display: flex; align-items:center; justify-content:center;">
-                        <i class="ph ph-piggy-bank fs-3"></i>
-                    </div>
-                    <span class="badge bg-warning-subtle text-warning">Próximamente</span>
-                </div>
-                <h6 class="text-muted mb-1 text-uppercase small fw-bold">Cerdos</h6>
-                <h2 class="mb-0 fw-bold">0</h2>
+            <div class="stat-card bg-grad-blue">
+                <div class="stat-card-label">Inventario A002</div>
+                <div class="stat-card-value">{{ $inventarioA002Count }}</div>
+                <div class="stat-card-sub">Productos Totales</div>
+                <i class="ph ph-hard-drive stat-card-icon"></i>
             </div>
         </div>
 
+        <!-- Inventario A006 -->
         <div class="col-12 col-sm-6 col-xl-3">
-            <div class="card card-body p-4 h-100">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                    <div class="avatar avatar-md bg-danger-subtle text-danger rounded-circle p-2" style="width: 48px; height: 48px; display: flex; align-items:center; justify-content:center;">
-                        <i class="ph ph-thermometer-hot fs-3"></i>
-                    </div>
-                    <span class="badge bg-danger-subtle text-danger">Alertas</span>
-                </div>
-                <h6 class="text-muted mb-1 text-uppercase small fw-bold">Salud</h6>
-                <h2 class="mb-0 fw-bold">0</h2>
+            <div class="stat-card bg-grad-green">
+                <div class="stat-card-label">Inventario A006</div>
+                <div class="stat-card-value">{{ $inventarioA006Count }}</div>
+                <div class="stat-card-sub">Productos Totales</div>
+                <i class="ph ph-stack stat-card-icon"></i>
             </div>
         </div>
 
+        <!-- Solicitudes Pendientes -->
         <div class="col-12 col-sm-6 col-xl-3">
-            <div class="card card-body p-4 h-100">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                    <div class="avatar avatar-md bg-info-subtle text-info rounded-circle p-2" style="width: 48px; height: 48px; display: flex; align-items:center; justify-content:center;">
-                        <i class="ph ph-currency-dollar fs-3"></i>
-                    </div>
-                    <span class="badge bg-info-subtle text-info">Ventas</span>
-                </div>
-                <h6 class="text-muted mb-1 text-uppercase small fw-bold">Ingresos</h6>
-                <h2 class="mb-0 fw-bold">$0.00</h2>
+            <div class="stat-card bg-grad-orange">
+                <div class="stat-card-label">Solicitudes Pendientes</div>
+                <div class="stat-card-value">{{ $solicitudesPendientesCount }}</div>
+                <div class="stat-card-sub">Requieren Aprobación</div>
+                <i class="ph ph-paper-plane-tilt stat-card-icon"></i>
+            </div>
+        </div>
+
+        <!-- Alertas Stock A006 -->
+        <div class="col-12 col-sm-6 col-xl-3">
+            <div class="stat-card bg-grad-red">
+                <div class="stat-card-label">Alertas Stock A006</div>
+                <div class="stat-card-value">{{ $alertasStockA006Count }}</div>
+                <div class="stat-card-sub">Productos Críticos</div>
+                <i class="ph ph-warning stat-card-icon"></i>
             </div>
         </div>
     </div>
 
-    <!-- Sección de Bienvenida -->
-    <div class="card p-5 border-0 bg-white shadow-sm overflow-hidden position-relative">
-        <div class="row align-items-center">
-            <div class="col-md-7 position-relative">
-                <h1 class="fw-bold text-dark display-5 mb-3">¡Hola, {{ Auth::user()->name }}!</h1>
-                <p class="lead text-muted mb-4">Bienvenido al panel de control de la Granja Porcina. Aquí podrás gestionar tu producción, salud animal y personal de manera eficiente.</p>
-                <a href="/users" class="btn btn-primary px-4 py-2 fw-semibold shadow-sm" wire:navigate>Gestionar Personal</a>
+    <!-- Fila 2 de Tarjetas -->
+    <div class="row g-4 mb-4">
+        <!-- Personal Activo -->
+        <div class="col-12 col-sm-6 col-xl-3">
+            <div class="stat-card bg-grad-teal">
+                <div class="stat-card-label">Personal Activo</div>
+                <div class="stat-card-value">{{ $personalActivoCount }}</div>
+                <div class="stat-card-sub">Empleados Registrados</div>
+                <i class="ph ph-users-three stat-card-icon"></i>
             </div>
-            <div class="col-md-5 d-none d-md-block text-end">
-                <i class="ph ph-buildings text-primary-subtle" style="font-size: 10rem; opacity: 0.2;"></i>
+        </div>
+
+        <!-- En Reposo -->
+        <div class="col-12 col-sm-6 col-xl-3">
+            <div class="stat-card bg-grad-purple">
+                <div class="stat-card-label">En Reposo</div>
+                <div class="stat-card-value">{{ $enReposoCount }}</div>
+                <div class="stat-card-sub">Total Granja</div>
+                <i class="ph ph-first-aid stat-card-icon"></i>
+            </div>
+        </div>
+
+        <!-- Vacaciones -->
+        <div class="col-12 col-sm-6 col-xl-3">
+            <div class="stat-card bg-grad-pink">
+                <div class="stat-card-label">Vacaciones</div>
+                <div class="stat-card-value">{{ $vacacionesCount }}</div>
+                <div class="stat-card-sub">Total Granja</div>
+                <i class="ph ph-airplane stat-card-icon"></i>
+            </div>
+        </div>
+
+        <!-- Regresos Pendientes -->
+        <div class="col-12 col-sm-6 col-xl-3">
+            <div class="stat-card bg-grad-dark-orange">
+                <div class="stat-card-label">Regresos Pendientes</div>
+                <div class="stat-card-value">{{ $regresosPendientesCount }}</div>
+                <div class="stat-card-sub">Sin confirmar regreso</div>
+                <i class="ph ph-clock-counter-clockwise stat-card-icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Inferior: Actividad y Accesos -->
+    <div class="row g-4">
+        <div class="col-12 col-lg-8">
+            <div class="card border-0 shadow-sm h-100" style="border-radius: 12px;">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="d-flex align-items-center">
+                            <i class="ph ph-history fs-4 text-primary me-2"></i>
+                            <h5 class="card-title mb-0 fw-bold">Actividad Reciente</h5>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm px-3 rounded-pill fw-bold">Ver todo</button>
+                    </div>
+
+                    <div class="text-center py-5">
+                        <i class="ph ph-file-search display-1 text-muted opacity-25 mb-3"></i>
+                        <p class="text-muted mb-0">No hay actividad reciente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+            <div class="card border-0 shadow-sm h-100" style="border-radius: 12px;">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div class="d-flex align-items-center">
+                            <i class="ph ph-lightning fs-4 text-warning me-2"></i>
+                            <h5 class="card-title mb-0 fw-bold">Accesos Directos</h5>
+                        </div>
+                        <span class="badge bg-light text-muted fw-bold">Top más usados</span>
+                    </div>
+
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action border-0 px-0 mb-2">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-danger-subtle text-danger rounded-3 p-2 me-3"
+                                        style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="ph ph-calendar-check fs-5"></i>
+                                    </div>
+                                    <span class="fw-bold text-dark">Registrar Asistencia</span>
+                                </div>
+                                <i class="ph ph-arrow-right text-muted"></i>
+                            </div>
+                        </a>
+
+                        <a href="/users" wire:navigate
+                            class="list-group-item list-group-item-action border-0 px-0 mb-2">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-primary-subtle text-primary rounded-3 p-2 me-3"
+                                        style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="ph ph-users-three fs-5"></i>
+                                    </div>
+                                    <span class="fw-bold text-dark">Gestión de Usuarios</span>
+                                </div>
+                                <i class="ph ph-arrow-right text-muted"></i>
+                            </div>
+                        </a>
+
+                        <a href="#" class="list-group-item list-group-item-action border-0 px-0 mb-2">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-info-subtle text-info rounded-3 p-2 me-3"
+                                        style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="ph ph-hard-drive fs-5"></i>
+                                    </div>
+                                    <span class="fw-bold text-dark">Inventario A002</span>
+                                </div>
+                                <i class="ph ph-arrow-right text-muted"></i>
+                            </div>
+                        </a>
+
+                        <a href="#" class="list-group-item list-group-item-action border-0 px-0 mb-2">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-success-subtle text-success rounded-3 p-2 me-3"
+                                        style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="ph ph-stack fs-5"></i>
+                                    </div>
+                                    <span class="fw-bold text-dark">Inventario A006</span>
+                                </div>
+                                <i class="ph ph-arrow-right text-muted"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

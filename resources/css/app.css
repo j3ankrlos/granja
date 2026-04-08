@@ -1,11 +1,67 @@
-@import 'tailwindcss';
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+/* Custom Stats Dashboard Styles */
+.stat-card {
+    border-radius: 12px;
+    padding: 1.25rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-card-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-bottom: 0.25rem;
+}
+
+.stat-card-value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card-sub {
+    font-size: 0.7rem;
+    opacity: 0.75;
+}
+
+.stat-card-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(10deg);
+    font-size: 4rem;
+    opacity: 0.2;
+}
+
+/* Specific Gradients */
+.bg-grad-blue { background: linear-gradient(135deg,#1a73e8,#0d47a1); }
+.bg-grad-green { background: linear-gradient(135deg,#2e7d32,#1b5e20); }
+.bg-grad-orange { background: linear-gradient(135deg,#f57c00,#e65100); }
+.bg-grad-red { background: linear-gradient(135deg,#d32f2f,#b71c1c); }
+.bg-grad-teal { background: linear-gradient(135deg,#00bfa5,#00695c); }
+.bg-grad-purple { background: linear-gradient(135deg,#7b1fa2,#4a148c); }
+.bg-grad-pink { background: linear-gradient(135deg,#c2185b,#880e4f); }
+.bg-grad-dark-orange { background: linear-gradient(135deg,#e64a19,#bf360c); }
+
+/* Common Styles */
+:root {
+    --primary-bg: #f4f6f9;
+}
+
+body {
+    background-color: var(--primary-bg);
+    font-family: 'Inter', system-ui, sans-serif;
 }
