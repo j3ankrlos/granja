@@ -5,7 +5,7 @@
         <div class="col-12 col-sm-6 col-xl-3">
             <div class="stat-card bg-grad-blue">
                 <div class="stat-card-label">Inventario A002</div>
-                <div class="stat-card-value">{{ $inventarioA002Count }}</div>
+                <div class="stat-card-value">{{ $data['inventarioA002Count'] }}</div>
                 <div class="stat-card-sub">Productos Totales</div>
                 <i class="ph ph-hard-drive stat-card-icon"></i>
             </div>
@@ -15,7 +15,7 @@
         <div class="col-12 col-sm-6 col-xl-3">
             <div class="stat-card bg-grad-green">
                 <div class="stat-card-label">Inventario A006</div>
-                <div class="stat-card-value">{{ $inventarioA006Count }}</div>
+                <div class="stat-card-value">{{ $data['inventarioA006Count'] }}</div>
                 <div class="stat-card-sub">Productos Totales</div>
                 <i class="ph ph-stack stat-card-icon"></i>
             </div>
@@ -25,7 +25,7 @@
         <div class="col-12 col-sm-6 col-xl-3">
             <div class="stat-card bg-grad-orange">
                 <div class="stat-card-label">Solicitudes Pendientes</div>
-                <div class="stat-card-value">{{ $solicitudesPendientesCount }}</div>
+                <div class="stat-card-value">{{ $data['solicitudesPendientesCount'] }}</div>
                 <div class="stat-card-sub">Requieren Aprobación</div>
                 <i class="ph ph-paper-plane-tilt stat-card-icon"></i>
             </div>
@@ -35,7 +35,7 @@
         <div class="col-12 col-sm-6 col-xl-3">
             <div class="stat-card bg-grad-red">
                 <div class="stat-card-label">Alertas Stock A006</div>
-                <div class="stat-card-value">{{ $alertasStockA006Count }}</div>
+                <div class="stat-card-value">{{ $data['alertasStockA006Count'] }}</div>
                 <div class="stat-card-sub">Productos Críticos</div>
                 <i class="ph ph-warning stat-card-icon"></i>
             </div>
@@ -48,7 +48,7 @@
         <div class="col-12 col-sm-6 col-xl-3">
             <div class="stat-card bg-grad-teal">
                 <div class="stat-card-label">Personal Activo</div>
-                <div class="stat-card-value">{{ $personalActivoCount }}</div>
+                <div class="stat-card-value">{{ $data['personalActivoCount'] }}</div>
                 <div class="stat-card-sub">Empleados Registrados</div>
                 <i class="ph ph-users-three stat-card-icon"></i>
             </div>
@@ -58,7 +58,7 @@
         <div class="col-12 col-sm-6 col-xl-3">
             <div class="stat-card bg-grad-purple">
                 <div class="stat-card-label">En Reposo</div>
-                <div class="stat-card-value">{{ $enReposoCount }}</div>
+                <div class="stat-card-value">{{ $data['enReposoCount'] }}</div>
                 <div class="stat-card-sub">Total Granja</div>
                 <i class="ph ph-first-aid stat-card-icon"></i>
             </div>
@@ -68,7 +68,7 @@
         <div class="col-12 col-sm-6 col-xl-3">
             <div class="stat-card bg-grad-pink">
                 <div class="stat-card-label">Vacaciones</div>
-                <div class="stat-card-value">{{ $vacacionesCount }}</div>
+                <div class="stat-card-value">{{ $data['vacacionesCount'] }}</div>
                 <div class="stat-card-sub">Total Granja</div>
                 <i class="ph ph-airplane stat-card-icon"></i>
             </div>
@@ -78,7 +78,7 @@
         <div class="col-12 col-sm-6 col-xl-3">
             <div class="stat-card bg-grad-dark-orange">
                 <div class="stat-card-label">Regresos Pendientes</div>
-                <div class="stat-card-value">{{ $regresosPendientesCount }}</div>
+                <div class="stat-card-value">{{ $data['regresosPendientesCount'] }}</div>
                 <div class="stat-card-sub">Sin confirmar regreso</div>
                 <i class="ph ph-clock-counter-clockwise stat-card-icon"></i>
             </div>

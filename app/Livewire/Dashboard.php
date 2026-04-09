@@ -4,19 +4,21 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
+use App\Services\DashboardService;
+
 class Dashboard extends Component
 {
-    public int $inventarioA002Count = 0;
-    public int $inventarioA006Count = 0;
-    public int $solicitudesPendientesCount = 0;
-    public int $alertasStockA006Count = 0;
-    public int $personalActivoCount = 130;
-    public int $enReposoCount = 0;
-    public int $vacacionesCount = 0;
-    public int $regresosPendientesCount = 0;
+    public array $stats = [];
+
+    public function mount(DashboardService $service)
+    {
+        $this->stats = $service->getStats();
+    }
 
     public function render()
     {
-        return view('livewire.dashboard')->title('Dashboard');
+        return view('livewire.dashboard', [
+            'data' => $this->stats
+        ])->title('Dashboard');
     }
 }

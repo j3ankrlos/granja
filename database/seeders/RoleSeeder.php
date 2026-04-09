@@ -7,19 +7,16 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Services\RoleManagementService;
 
 class RoleSeeder extends Seeder
 {
-    public function run(): void
+    public function run(RoleManagementService $roleService): void
     {
-        /**
-         * 1. LIMPIEZA DE CACHÉ DE PERMISOS
-         */
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        // 1. Limpieza de caché
+        $roleService->clearCache();
 
-        /**
-         * 2. DEFINICIÓN DE PERMISOS BASE
-         */
+        // 2. Permisos base
         $permissions = [
             'ver dashboard',
             'ver usuarios',
@@ -27,33 +24,17 @@ class RoleSeeder extends Seeder
             'editar usuarios',
             'eliminar usuarios',
         ];
+        $roleService->syncPermissions($permissions);
 
-        foreach ($permissions as $permission) {
-            Permission::updateOrCreate(['name' => $permission]);
-        }
+        // 3. Setup del Rol Admin
+        $roleService->setupRole('Super Admin');
 
-        /**
-         * 3. CREACIÓN DEL ROL SUPER ADMIN
-         */
-        $roleAdmin = Role::updateOrCreate(['name' => 'Super Admin']);
-
-        // Asignamos todos los permisos existentes al rol de Super Admin
-        $roleAdmin->syncPermissions(Permission::all());
-
-        /**
-         * 4. GENERACIÓN DEL USUARIO ADMINISTRADOR
-         * Cambiado a: admin@admin.com / admin
-         */
-        $admin = User::updateOrCreate(
-            ['email' => 'admin@admin.com'], // Se recomienda usar formato email
-            [
-                'name' => 'Administrador Sistema',
-                'password' => Hash::make('admin'), // Contraseña: admin
-                'email_verified_at' => now(),
-            ]
+        // 4. Crear usuario administrador inicial
+        $roleService->createAdmin(
+            'Administrador Sistema',
+            'admin@admin.com',
+            'admin',
+            'admin'
         );
-
-        // Asignación del rol al usuario
-        $admin->assignRole($roleAdmin);
     }
 }

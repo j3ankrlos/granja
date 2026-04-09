@@ -8,12 +8,12 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public string $email = '';
+    public string $username = '';
     public string $password = '';
     public bool $remember = false;
 
     protected $rules = [
-        'email' => 'required|email',
+        'username' => 'required',
         'password' => 'required',
     ];
 
@@ -21,9 +21,9 @@ class Login extends Component
     {
         $this->validate();
 
-        if (!Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
+        if (!Auth::attempt(['username' => $this->username, 'password' => $this->password], $this->remember)) {
             throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
+                'username' => __('auth.failed'),
             ]);
         }
 
